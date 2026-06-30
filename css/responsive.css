@@ -1,0 +1,105 @@
+/* ===================== TABLET ===================== */
+@media (max-width: 1024px) {
+  /* Hero: stack on tablet */
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-right { display: none; }
+
+  .hero-left { max-width: 100%; }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-visual { max-width: 400px; margin: 0 auto; }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand { grid-column: 1 / -1; }
+}
+
+/* ===================== MOBILE ===================== */
+@media (max-width: 768px) {
+  .section { padding: 70px 0; }
+
+  /* Navbar */
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+
+  /* Hero */
+  .hero-name { letter-spacing: -1px; }
+  .hero-typing-row { font-size: 1.3rem; }
+  .scroll-indicator { display: none; }
+
+  .shape-ring-1, .shape-ring-2 { display: none; }
+
+  /* About */
+  .about-card-wrap { min-height: 280px; padding: 24px; }
+  .ring-a { width: 200px; height: 200px; margin-left: -100px; margin-top: -100px; }
+  .ring-b { width: 250px; height: 250px; margin-left: -125px; margin-top: -125px; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Skills */
+  .skills-grid { grid-template-columns: 1fr; }
+
+  /* Services */
+  .services-grid { grid-template-columns: 1fr; }
+
+  /* Projects */
+  .projects-grid { grid-template-columns: 1fr; }
+
+  /* Why */
+  .why-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Timeline */
+  .timeline { padding-left: 30px; }
+
+  /* Testimonials */
+  .testi-grid { grid-template-columns: 1fr; }
+
+  /* Contact */
+  .form-row { grid-template-columns: 1fr; }
+
+  /* CTA banner */
+  .cta-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .cta-text h2 { font-size: 1.5rem; }
+
+  /* Footer */
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-brand { grid-column: auto; }
+
+  .footer-bottom-inner {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  /* Back to top */
+  #back-to-top { bottom: 20px; right: 20px; }
+  #toast { right: 20px; }
+}
+
+@media (max-width: 480px) {
+  .hero-btns { flex-direction: column; align-items: flex-start; }
+  .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+  .why-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .proj-img { height: 180px; }
+}
