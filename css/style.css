@@ -2289,3 +2289,20 @@ a.contact-val:hover {
 .footer-bottom-inner p {
   margin: 0;
 }
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.contact-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.contact-val {
+  display: block;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
