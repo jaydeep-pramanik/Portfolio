@@ -103,3 +103,55 @@
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .proj-img { height: 180px; }
 }
+
+@media (max-width: 768px) {
+
+  .hero {
+    padding: 100px 20px 60px;
+    min-height: auto;
+  }
+
+  .hero-content {
+    width: 100%;
+    text-align: left;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+
+  .hero p {
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 100%;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero-buttons a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+html,
+body{
+    overflow-x:hidden;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+img{
+    max-width:100%;
+}

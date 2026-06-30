@@ -9,17 +9,17 @@
    * LOADING SCREEN — animated ring + code lines + counter
    * ========================================================= */
   (function initLoader() {
-    var screen   = document.getElementById('loading-screen');
-    var ringEl   = document.getElementById('ls-ring');
-    var pctEl    = document.getElementById('ls-pct-num');
-    var barFill  = document.getElementById('ls-bottom-fill');
-    var lc1      = document.getElementById('lc1');
-    var lc2      = document.getElementById('lc2');
-    var lc3      = document.getElementById('lc3');
-    var CIRC     = 2 * Math.PI * 52; // ≈ 326.7
+    var screen = document.getElementById('loading-screen');
+    var ringEl = document.getElementById('ls-ring');
+    var pctEl = document.getElementById('ls-pct-num');
+    var barFill = document.getElementById('ls-bottom-fill');
+    var lc1 = document.getElementById('lc1');
+    var lc2 = document.getElementById('lc2');
+    var lc3 = document.getElementById('lc3');
+    var CIRC = 2 * Math.PI * 52; // ≈ 326.7
 
     if (ringEl) {
-      ringEl.style.strokeDasharray  = CIRC;
+      ringEl.style.strokeDasharray = CIRC;
       ringEl.style.strokeDashoffset = CIRC;
     }
 
@@ -33,15 +33,15 @@
 
     function tick(ts) {
       if (!startTs) startTs = ts;
-      var elapsed  = ts - startTs;
+      var elapsed = ts - startTs;
 
       // If page hasn't loaded yet, cap at 85%
       var maxRaw = pageLoaded ? 1 : 0.85;
-      var raw    = Math.min(elapsed / DURATION, maxRaw);
-      var eased  = easeOutCubic(raw);
-      var pct    = Math.floor(eased * 100);
+      var raw = Math.min(elapsed / DURATION, maxRaw);
+      var eased = easeOutCubic(raw);
+      var pct = Math.floor(eased * 100);
 
-      if (pctEl)  pctEl.textContent = pct;
+      if (pctEl) pctEl.textContent = pct;
       if (ringEl) ringEl.style.strokeDashoffset = CIRC * (1 - eased);
       if (barFill) barFill.style.width = (eased * 100) + '%';
 
@@ -53,7 +53,7 @@
         requestAnimationFrame(tick);
       } else {
         // Snap to 100 and hide
-        if (pctEl)  pctEl.textContent = 100;
+        if (pctEl) pctEl.textContent = 100;
         if (ringEl) ringEl.style.strokeDashoffset = 0;
         if (barFill) barFill.style.width = '100%';
         if (lc1) lc1.classList.add('visible');
@@ -80,7 +80,7 @@
     let animFrame;
 
     function resize() {
-      canvas.width  = canvas.offsetWidth;
+      canvas.width = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
     }
 
@@ -89,19 +89,19 @@
     }
 
     Particle.prototype.reset = function () {
-      this.x  = Math.random() * canvas.width;
-      this.y  = Math.random() * canvas.height;
-      this.r  = Math.random() * 1.5 + 0.5;
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.r = Math.random() * 1.5 + 0.5;
       this.vx = (Math.random() - 0.5) * 0.3;
       this.vy = (Math.random() - 0.5) * 0.3;
-      this.a  = Math.random() * 0.5 + 0.15;
+      this.a = Math.random() * 0.5 + 0.15;
     };
 
     Particle.prototype.update = function () {
       this.x += this.vx;
       this.y += this.vy;
-      if (this.x < 0 || this.x > canvas.width)  this.vx *= -1;
-      if (this.y < 0 || this.y > canvas.height)  this.vy *= -1;
+      if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+      if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
     };
 
     function createParticles() {
@@ -166,7 +166,7 @@
   if (cursor) {
     document.addEventListener('mousemove', function (e) {
       cursor.style.left = e.clientX + 'px';
-      cursor.style.top  = e.clientY + 'px';
+      cursor.style.top = e.clientY + 'px';
     });
   }
 
@@ -176,7 +176,7 @@
   const progressBar = document.getElementById('scroll-progress');
   function updateProgress() {
     if (!progressBar) return;
-    const scrollTop  = document.documentElement.scrollTop;
+    const scrollTop = document.documentElement.scrollTop;
     const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
     progressBar.style.width = pct + '%';
@@ -249,20 +249,20 @@
   /* =========================================================
    * MOBILE MENU
    * ========================================================= */
-  const hamburger    = document.getElementById('hamburger');
+  const hamburger = document.getElementById('hamburger');
   const mobileDrawer = document.getElementById('mobile-drawer');
-  const mobOverlay   = document.getElementById('mob-overlay');
-  const menuIcon     = document.getElementById('menu-icon');
+  const mobOverlay = document.getElementById('mob-overlay');
+  const menuIcon = document.getElementById('menu-icon');
 
   function openMobileMenu() {
     mobileDrawer && mobileDrawer.classList.add('open');
-    mobOverlay   && mobOverlay.classList.add('show');
+    mobOverlay && mobOverlay.classList.add('show');
     if (menuIcon) menuIcon.className = 'bx bx-x';
   }
 
   window.closeMobileMenu = function () {
     mobileDrawer && mobileDrawer.classList.remove('open');
-    mobOverlay   && mobOverlay.classList.remove('show');
+    mobOverlay && mobOverlay.classList.remove('show');
     if (menuIcon) menuIcon.className = 'bx bx-menu';
   };
 
@@ -284,9 +284,9 @@
       var color = card.dataset.color;
       if (!color) return;
       var fill = card.querySelector('.skill-fill');
-      var pct  = card.querySelector('.skill-pct');
+      var pct = card.querySelector('.skill-pct');
       if (fill) fill.style.background = 'linear-gradient(90deg, ' + color + 'cc, ' + color + ')';
-      if (pct)  pct.style.color = color;
+      if (pct) pct.style.color = color;
     });
   }
   applySkillColors();
@@ -349,16 +349,16 @@
    * BACK TO TOP BUTTON + RING PROGRESS
    * ========================================================= */
   const backToTop = document.getElementById('back-to-top');
-  const bttCircle  = document.getElementById('btt-circle');
+  const bttCircle = document.getElementById('btt-circle');
   var CIRCUMFERENCE = 2 * Math.PI * 20; // r=20 → ~125.66
 
   function updateBackToTop() {
     if (!backToTop) return;
-    const scrollTop    = document.documentElement.scrollTop;
+    const scrollTop = document.documentElement.scrollTop;
     const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const pct = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
     if (bttCircle) {
-      bttCircle.style.strokeDasharray  = CIRCUMFERENCE;
+      bttCircle.style.strokeDasharray = CIRCUMFERENCE;
       bttCircle.style.strokeDashoffset = CIRCUMFERENCE * (1 - pct);
     }
     if (scrollTop > 500) {
@@ -400,18 +400,18 @@
    * ========================================================= */
   document.querySelectorAll('.ripple').forEach(function (btn) {
     btn.addEventListener('click', function (e) {
-      const rect   = btn.getBoundingClientRect();
-      const size   = Math.max(rect.width, rect.height);
-      const x      = e.clientX - rect.left - size / 2;
-      const y      = e.clientY - rect.top  - size / 2;
+      const rect = btn.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
 
       const circle = document.createElement('span');
       circle.classList.add('ripple-circle');
       circle.style.cssText = [
-        'width:'  + size + 'px',
+        'width:' + size + 'px',
         'height:' + size + 'px',
-        'left:'   + x + 'px',
-        'top:'    + y + 'px'
+        'left:' + x + 'px',
+        'top:' + y + 'px'
       ].join(';');
 
       btn.appendChild(circle);
@@ -426,9 +426,9 @@
 
   function setError(fieldId, errId, message) {
     const field = document.getElementById(fieldId);
-    const err   = document.getElementById(errId);
+    const err = document.getElementById(errId);
     if (field) field.classList.toggle('error', !!message);
-    if (err)   err.textContent = message || '';
+    if (err) err.textContent = message || '';
     return !!message;
   }
 
@@ -476,17 +476,17 @@
       e.preventDefault();
 
       const data = {
-        name:    document.getElementById('f-name')   ? document.getElementById('f-name').value   : '',
-        email:   document.getElementById('f-email')  ? document.getElementById('f-email').value  : '',
-        subject: document.getElementById('f-subject')? document.getElementById('f-subject').value : '',
-        message: document.getElementById('f-message')? document.getElementById('f-message').value : ''
+        name: document.getElementById('f-name') ? document.getElementById('f-name').value : '',
+        email: document.getElementById('f-email') ? document.getElementById('f-email').value : '',
+        subject: document.getElementById('f-subject') ? document.getElementById('f-subject').value : '',
+        message: document.getElementById('f-message') ? document.getElementById('f-message').value : ''
       };
 
       if (!validateForm(data)) return;
 
-      const btn   = document.getElementById('send-btn');
+      const btn = document.getElementById('send-btn');
       const label = document.getElementById('send-label');
-      const icon  = document.getElementById('send-icon');
+      const icon = document.getElementById('send-icon');
 
       if (btn) btn.disabled = true;
       if (label) label.textContent = 'Sending...';
@@ -504,3 +504,36 @@
   }
 
 })();
+
+const form = document.getElementById("contact-form");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById("f-name").value.trim();
+  const email = document.getElementById("f-email").value.trim();
+  const subject = document.getElementById("f-subject").value.trim();
+  const message = document.getElementById("f-message").value.trim();
+
+  // Basic Validation
+  if (!name || !email || !subject || !message) {
+    alert("Please fill in all fields.");
+    return;
+  }
+
+  const whatsappMessage = `*New Portfolio Inquiry*%0A%0A` +
+    ` *Name:* ${encodeURIComponent(name)}%0A` +
+    ` *Email:* ${encodeURIComponent(email)}%0A` +
+    ` *Subject:* ${encodeURIComponent(subject)}%0A%0A` +
+    ` *Message:*%0A${encodeURIComponent(message)}`;
+
+  // Your WhatsApp Number
+  const phoneNumber = "918758030449";
+
+  window.open(
+    `https://wa.me/${phoneNumber}?text=${whatsappMessage}`,
+    "_blank"
+  );
+
+  form.reset();
+});
